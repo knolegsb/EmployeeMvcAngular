@@ -21,9 +21,9 @@ namespace EmployeeMvcAngular.Controllers
             return Json(employeeList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetEmployeeByNo(string empNo)
+        public JsonResult GetEmployeeById(string id)
         {
-            int no = Convert.ToInt32(empNo);
+            int no = Convert.ToInt32(id);
             var employeeList = dbContext.Employees.Find(no);
             return Json(employeeList, JsonRequestBehavior.AllowGet);
         }
@@ -54,6 +54,22 @@ namespace EmployeeMvcAngular.Controllers
                 dbContext.Employees.Add(emp);
                 dbContext.SaveChanges();
                 return "Employee Updated";
+            }
+            else
+            {
+                return "Invalid Employee";
+            }
+        }
+
+        public string DeleteEmployee(Employee emp)
+        {
+            if (emp != null)
+            {
+                int no = Convert.ToInt32(emp.ID);
+                var employeeList = dbContext.Employees.Where(x => x.ID == no).FirstOrDefault();
+                dbContext.Employees.Remove(employeeList);
+                dbContext.SaveChanges();
+                return "Employee Deleted";
             }
             else
             {
