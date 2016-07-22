@@ -19,7 +19,7 @@
             $scope.employeeId = employee.Id;
             $scope.employeeName = employee.Name;
             $scope.employeeEmail = employee.Email;
-            $scope.employeePhonenumber = employee.PhoneNumber;
+            $scope.employeeMobienumber = employee.MobileNumber;
         }, function() {
             alert('Error in getting records');
         });

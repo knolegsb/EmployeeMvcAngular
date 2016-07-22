@@ -18,11 +18,11 @@
                 <td><b>Phone Number</b></td>
                 <td><b>Actions</b></td>
             </tr>
-            <tr>
+            <tr ng-repeat="employee in employees">
                 <td>{{employee.ID}}</td>
                 <td>{{employee.Name}}</td>
                 <td>{{employee.Email}}</td>
-                <td>{{employee.PhoneNumber}}</td>
+                <td>{{employee.MobileNumber}}</td>
                 <td>
                     <span>Edit</span>
                     <span>Delete</span>
