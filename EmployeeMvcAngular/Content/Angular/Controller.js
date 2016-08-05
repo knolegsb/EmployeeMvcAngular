@@ -44,7 +44,7 @@
                 alert(msg.data);
                 $scope.divEmployee = false;
             }, function () {
-                alert('Error in adding record');
+                alert('Error in updating record');
             });
         } else {
             var getData = angularService.AddEmp(Employee);
