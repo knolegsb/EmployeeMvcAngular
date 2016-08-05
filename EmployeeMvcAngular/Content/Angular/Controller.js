@@ -31,7 +31,7 @@
         $scope.divEmployee = true;
     }
 
-    $scope.deleteEmployer = function(employee) {
+    $scope.deleteEmployee = function(employee) {
         var getData = angularService.deleteEmp(employee.Id);
         getData.then(function(msg) {
             getAllEmployee();
