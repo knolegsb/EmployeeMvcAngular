@@ -18,14 +18,14 @@
                 <td><b>Phone Number</b></td>
                 <td><b>Actions</b></td>
             </tr>
-            <tr ng-repeat="employee in employees">
+            <tr ng-repeat="employee in getEmployees">
                 <td>{{employee.ID}}</td>
                 <td>{{employee.Name}}</td>
                 <td>{{employee.Email}}</td>
                 <td>{{employee.MobileNumber}}</td>
                 <td>
-                    <span>Edit</span>
-                    <span>Delete</span>
+                    <span ng-click="editEmployee(employee)" class="btnAdd">Edit</span>
+                    <span ng-click="deleteEmployee(employee)" class="btnRed">Delete</span>
                 </td>
             </tr>
         </table>
@@ -55,7 +55,7 @@
             <tr>
                 <td><b>Phone Number</b></td>
                 <td>
-                    <input type="text" ng-model="employeePhonenumber"/>
+                    <input type="text" ng-model="employeeMobilenumber"/>
                 </td>
             </tr>
             <tr>

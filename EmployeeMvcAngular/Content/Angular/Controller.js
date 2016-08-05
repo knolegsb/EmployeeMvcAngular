@@ -19,10 +19,43 @@
             $scope.employeeId = employee.Id;
             $scope.employeeName = employee.Name;
             $scope.employeeEmail = employee.Email;
-            $scope.employeeMobienumber = employee.MobileNumber;
+            $scope.employeeMobilenumber = employee.MobileNumber;
+            $scope.Action = "Update";
+            $scope.divEmployee = true;
         }, function() {
             alert('Error in getting records');
         });
+    }
+
+    $scope.AddUpdateEmployee = function () {
+        debugger;
+        var Employee = {
+            Name: $scope.employeeName,
+            Email: $scope.employeeEmail,
+            MobileNumber: $scope.employeeMobilenumber
+        };
+        var getAction = $scope.Action;
+
+        if (getAction == "Update") {
+            Employee.Id = $scope.employeeId;
+            var getData = angularService.updateEmp(Employee);
+            getData.then(function (msg) {
+                getAllEmployee();
+                alert(msg.data);
+                $scope.divEmployee = false;
+            }, function () {
+                alert('Error in adding record');
+            });
+        } else {
+            var getData = angularService.AddEmp(Employee);
+            getData.then(function (msg) {
+                getAllEmployee();
+                alert(msg.data);
+                $scope.divEmployee = false;
+            }, function () {
+                alert('Error in adding record');
+            });
+        }
     }
 
     $scope.AddEmployeeDiv = function() {
@@ -45,6 +78,6 @@
         $scope.employeeId = "";
         $scope.employeeName = "";
         $scope.employeeEmail = "";
-        $scope.employeePhonenumber = "";
+        $scope.employeeMobilenumber = "";
     }
 });
